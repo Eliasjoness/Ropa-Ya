@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROPA YA - Elegí, reservá y vestite sin moverte de casa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>ROPA YA - Elegí, Reservá y Vestite sin Moverte de Casa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
     <style>
-        /* [El CSS se encuentra en la sección 2 a continuación] */
-        /* Incluido aquí para tener un solo archivo si es necesario */
-        /* -------------------------------------------------------- */
         :root {
-            --color-primary: #00BFA5; /* Verde azulado brillante */
-            --color-secondary: #38A3A5; /* Azul verdoso */
-            --color-text: #333;
-            --color-bg-light: #f9f9f9;
+            --color-primary: #00BFA5; /* Verde Teal / Menta */
+            --color-secondary: #00796B; /* Teal Oscuro */
+            --color-accent: #FFC107; /* Amarillo para CTA (Venta) */
+            --color-text: #333333;
+            --color-text-light: #555555;
+            --color-bg-light: #F8F8F8;
             --color-white: #ffffff;
+            --font-family: 'Montserrat', sans-serif;
         }
 
         * {
@@ -24,56 +26,59 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: var(--font-family);
             color: var(--color-text);
             line-height: 1.6;
             background-color: var(--color-white);
+            overflow-x: hidden;
         }
 
         /* --- Utilidades --- */
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 25px;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 15px 35px;
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--color-white);
-            background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+            color: var(--color-text);
+            background-color: var(--color-accent);
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
             cursor: pointer;
+            box-shadow: 0 8px 15px rgba(255, 193, 7, 0.3);
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ff9800;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 193, 7, 0.4);
         }
 
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 40px;
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
             color: var(--color-secondary);
         }
-
-        h3 {
-            font-size: 1.5rem;
+            
+        .section-subtitle {
+            font-size: 1.4rem;
             font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--color-secondary);
+            margin-bottom: 60px;
+            color: var(--color-text-light);
         }
 
         /* --- Header y Navegación --- */
         header {
             background-color: var(--color-white);
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -86,18 +91,25 @@
             align-items: center;
         }
 
+        /* Estilos para el logo de imagen */
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
             color: var(--color-primary);
             text-decoration: none;
+            height: 35px; /* Altura máxima del logo para que encaje bien */
+            display: block;
+        }
+
+        .logo img { /* Estilo para la imagen dentro del ancla */
+            height: 100%;
+            width: auto;
+            vertical-align: middle;
         }
 
         nav a {
-            color: var(--color-text);
+            color: var(--color-text-light);
             text-decoration: none;
             margin-left: 30px;
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.3s;
         }
 
@@ -107,133 +119,208 @@
 
         /* --- Hero Section --- */
         #hero {
-            background-color: var(--color-bg-light);
-            padding: 100px 0;
-            text-align: center;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%2300BFA5;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%2338A3A5;stop-opacity:0.1" /></linearGradient></defs><rect width="100" height="100" fill="url(%23g)"/></svg>');
-            background-size: cover;
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-white) 100%);
+        }
+
+        #hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+        }
+
+        .hero-content {
+            max-width: 55%;
         }
 
         #hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
             color: var(--color-secondary);
         }
 
         #hero p {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 40px;
-            color: #555;
+            color: var(--color-text-light);
+            font-weight: 400;
         }
 
-        /* --- Sections Generales --- */
-        section {
+        .hero-image-placeholder {
+            width: 40%;
+            min-height: 350px;
+            background-color: #e0f2f1;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            /* Placeholder para imagen de moda y app */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+
+        /* --- Value Proposition --- */
+        #value-prop {
             padding: 80px 0;
+            text-align: center;
+            background-color: var(--color-white);
+        }
+            
+        .prop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .prop-card {
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            transition: all 0.3s;
             text-align: center;
         }
 
-        #problema-solucion, #impacto {
-            background-color: var(--color-bg-light);
+        .prop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
         }
 
-        /* --- Problema y Solución --- */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            text-align: left;
-            margin-top: 50px;
-        }
-
-        .problem-card {
-            background-color: var(--color-white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            border-top: 5px solid var(--color-primary);
-            transition: box-shadow 0.3s;
-        }
-
-        .problem-card:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .problem-card h4 {
-            font-size: 1.2rem;
+        .prop-card i {
+            font-size: 3rem;
             color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .prop-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--color-text);
+        }
+
+        /* --- Kevingston Spotlight Section (New) --- */
+        #kevingston-spotlight {
+            padding: 100px 0;
+            background-color: var(--color-bg-light);
+            text-align: center;
+        }
+
+        .kevingston-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #C0392B; /* Color típico de marca de moda */
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background-color: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background-color: #f0f0f0;
+            /* Usando imágenes proporcionadas por el usuario como referencia */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 10px;
+            font-weight: 700;
+            color: var(--color-white);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+            
+        .prod-1 { /* Remera Hombre Lisas */
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSrd1U40acafAXc9I404br7DpslE-ebB56Ag&s'); 
+            background-size: cover;
+            background-position: top;
+        }
+        .prod-2 { /* Remera Profile Negra */
+            background-image: url('https://acdn-us.mitiendanube.com/stores/420/849/products/01-remera-hombre-profile-negra1-115b22ae7699546b6616933332037189-1024-1024.webp');
+            background-size: cover;
+            background-position: top;
+        }
+        .prod-3 { /* Buzo Deportivo */
+            background-image: url('https://megasports.vteximg.com.br/arquivos/ids/232947-1000-1000/16299001001_0.jpg?v=638599490923830000');
+            background-size: cover;
+            background-position: center;
+        }
+        .prod-4 { /* Campera Liviana */
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaiIRVDFSn8h5EAUV02gVSxJST1k45x9flnQ&s');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h5 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--color-secondary);
+        }
+
+        .product-info p {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #C0392B; /* Color de Kevingston para precio */
             margin-bottom: 10px;
         }
 
-        /* --- Características --- */
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            text-align: left;
+        .reserve-button {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 8px 15px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        .reserve-button:hover {
+            background-color: var(--color-secondary);
+        }
+
+        /* --- Cierre y Llamada a la Acción --- */
+        #cta-final {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        #cta-final h2 {
+            color: var(--color-white);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+            
+        #cta-final p {
+            font-size: 1.3rem;
             margin-bottom: 40px;
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--color-secondary);
-            margin-right: 20px;
-            min-width: 40px;
-        }
-
-        /* --- Testimonios --- */
-        #testimonios {
-            background-color: var(--color-white);
-        }
-
-        .testimonial-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .testimonial-card {
-            background-color: var(--color-bg-light);
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 45%;
-            text-align: left;
-        }
-
-        .testimonial-card h4 {
-            color: var(--color-primary);
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .quote {
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        /* --- Impacto Ambiental --- */
-        .impact-list {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .impact-item {
-            max-width: 300px;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-
-        .impact-item.positive {
-            border-left: 5px solid green;
-        }
-
-        .impact-item.challenge {
-            border-left: 5px solid orange;
+            font-weight: 300;
         }
 
         /* --- Footer --- */
@@ -247,210 +334,243 @@
         footer .container {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+        }
+            
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 10px;
         }
 
-        footer a {
-            color: var(--color-white);
+        .footer-links a {
+            color: #ccc;
             text-decoration: none;
-            margin-left: 20px;
+            display: block;
+            margin-bottom: 5px;
+            transition: color 0.3s;
         }
+
+        .footer-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-social a {
+            color: var(--color-white);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+            
+        .footer-social a:hover {
+            color: var(--color-primary);
+        }
+
 
         /* --- Media Queries (Responsiveness) --- */
         @media (max-width: 992px) {
-            .grid-3 {
+            #hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 40px;
+            }
+            .hero-image-placeholder {
+                width: 100%;
+            }
+            .prop-grid {
                 grid-template-columns: 1fr 1fr;
             }
-            .testimonial-grid {
-                flex-direction: column;
-                gap: 20px;
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .testimonial-card {
-                max-width: 100%;
+            nav a:not(.cta-button) {
+                margin-left: 15px; /* Ajuste para navegación en tabletas */
             }
         }
 
         @media (max-width: 768px) {
-            #hero h1 {
-                font-size: 2.5rem;
-            }
-            #hero p {
-                font-size: 1.1rem;
-            }
-            h2 {
+            .section-title {
                 font-size: 2rem;
             }
-            .grid-3 {
-                grid-template-columns: 1fr;
+            .section-subtitle {
+                font-size: 1.2rem;
             }
-            header .container {
-                flex-direction: column;
+            #hero h1 {
+                font-size: 2.8rem;
+            }
+            #hero p {
+                font-size: 1.2rem;
             }
             nav {
-                margin-top: 15px;
+                display: none; /* Simplificamos la navegación para móviles */
             }
-            nav a {
-                margin: 0 10px;
+            .prop-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
             }
             footer .container {
                 flex-direction: column;
+                align-items: center;
                 text-align: center;
             }
-            footer nav {
-                margin-top: 15px;
+            .footer-info, .footer-links, .footer-social {
+                margin-bottom: 20px;
             }
         }
-        /* -------------------------------------------------------- */
     </style>
 </head>
 <body>
 
     <header>
         <div class="container">
-            <a href="#" class="logo">ROPA YA</a>
+            <a href="#" class="logo">
+                <img src="https://i.ibb.co/QFbnWRJP/Imagen-de-Whats-App-2025-11-22-a-las-17-50-07-c7b06c19.jpg" alt="Logo ROPA YA">
+            </a>
             <nav>
-                <a href="#problema">Problema</a>
-                <a href="#caracteristicas">Funcionalidades</a>
-                <a href="#clientes">Clientes</a>
-                <a href="#impacto">Impacto</a>
-                <a href="#cta-final" class="cta-button">Empezar a Comprar</a>
+                <a href="#valor">Valor</a>
+                <a href="#kevingston">Tiendas</a>
+                <a href="#cta-final" class="cta-button scroll-link">Descargar App</a>
             </nav>
         </div>
     </header>
 
     <section id="hero">
         <div class="container">
-            <h1>ROPA YA: Vestite sin moverte de casa.</h1>
-            <p>Elegí, compará y reservá moda de tiendas de todo el país. **Moderno, Ágil y Confiable.**</p>
-            <a href="#caracteristicas" class="cta-button scroll-link">🛒 Explorar Tiendas Ahora</a>
-        </div>
-    </section>
-
-    <section id="problema-solucion">
-        <div class="container">
-            <h2 id="problema">¿Por qué "ROPA YA"? Los Problemas que Resolvemos</h2>
-            <div class="grid-3">
-                <div class="problem-card">
-                    <h4>🚧 Inseguridad en el Trayecto</h4>
-                    <p>**Solución:** Evita desplazarte a zonas comerciales. Comprá desde casa de forma segura.</p>
-                </div>
-                <div class="problem-card">
-                    <h4>⏳ Falta de Tiempo</h4>
-                    <p>**Solución:** Experiencia ágil. Compara miles de productos y marcas en minutos, sin recorrer cuadras.</p>
-                </div>
-                <div class="problem-card">
-                    <h4>🚫 Miedo a Perder Stock</h4>
-                    <p>**Solución:** Reserva Inteligente. Asegurá que tu prenda favorita estará disponible cuando decidas comprarla.</p>
-                </div>
+            <div class="hero-content">
+                <h1>Compra Moda Nacional. Reserva. Ahorra Tiempo.</h1>
+                <p>ROPA YA transforma tu compra: Accede al stock de miles de tiendas (de shoppings a showrooms) y asegura tu prenda antes de salir de casa. Sin estrés, sin apuros.</p>
+                <a href="#kevingston" class="cta-button scroll-link">🛒 Explorar Catálogo Nacional</a>
+            </div>
+            <div class="hero-image-placeholder">
+                <i class="fas fa-mobile-alt"></i> App ROPA YA
             </div>
         </div>
     </section>
 
-    <section id="caracteristicas">
+    <section id="value-prop">
         <div class="container">
-            <h2>Tu Compra, A Tu Manera.</h2>
-
-            <div class="feature-item">
-                <span class="feature-icon">🛍️</span>
-                <div>
-                    <h3>1. Explorá la Variedad Nacional</h3>
-                    <p>Accedé a un catálogo inigualable que incluye desde pequeños <strong>showrooms</strong> locales hasta grandes tiendas de <strong>shopping</strong> a lo largo del país.</p>
+            <h2 class="section-title" id="valor">La Experiencia ROPA YA: Flexibilidad y Seguridad</h2>
+            <div class="prop-grid">
+                <div class="prop-card">
+                    <i class="fas fa-route"></i>
+                    <h4>Elimina la Inseguridad</h4>
+                    <p>Evitá desplazamientos innecesarios y la frustración de no encontrar lo que buscás. Comprá 100% segura desde tu hogar.</p>
                 </div>
-            </div>
-
-            <div class="feature-item">
-                <span class="feature-icon">📍</span>
-                <div>
-                    <h3>2. Geolocalización Inteligente</h3>
-                    <p>Utilizá tu ubicación para filtrar tiendas cercanas, comparar precios y organizar el retiro de forma eficiente.</p>
+                <div class="prop-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h4>Reserva & Garantía de Stock</h4>
+                    <p>La clave: reservá tu talle en la tienda física. Decidí si te lo enviamos o pasás a probártelo con la seguridad de que es tuyo.</p>
                 </div>
-            </div>
-
-            <div class="feature-item">
-                <span class="feature-icon">🔒</span>
-                <div>
-                    <h3>3. Reserva y Probalo</h3>
-                    <p>Reservá tu prenda favorita en la tienda. Luego, decidís si la probás presencialmente o si solicitás el envío a domicilio.</p>
-                </div>
-            </div>
-             <div class="feature-item">
-                <span class="feature-icon">🚚</span>
-                <div>
-                    <h3>4. Logística Flexible</h3>
-                    <p>Recibí el producto en tu casa o elegí el retiro en tienda. Nos adaptamos a tu ritmo de vida y a tus horarios.</p>
+                <div class="prop-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h4>Alcance Nacional</h4>
+                    <p>Conectamos tiendas grandes y chicas, de todo el país. Geolocalización para encontrar lo que necesitas, cerca o lejos.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="clientes">
+    <section id="kevingston-spotlight">
         <div class="container">
-            <h2>ROPA YA: Diseñado para Vos.</h2>
-            <div class="testimonial-grid">
-                
-                <div class="testimonial-card">
-                    <h4>Mujer (25-35 años) - La Compradora Práctica</h4>
-                    <p class="quote">"Antes me frustraba que mis prendas favoritas se agotaran. Con ROPA YA, puedo **reservar con tranquilidad** y comprar sin apuro. ¡Confianza y flexibilidad!"</p>
-                    <small>Desea poder reservar una prenda y tener la seguridad de que estará disponible cuando decida comprarla.</small>
-                </div>
-
-                <div class="testimonial-card">
-                    <h4>Hombre (35-50 años) - El Ejecutivo Eficiente</h4>
-                    <p class="quote">"No tengo tiempo para recorrer tiendas. Necesitaba una solución **rápida, segura y con envíos eficientes**. ROPA YA me ahorró horas de búsqueda."</p>
-                    <small>Desea una experiencia sin complicaciones, con envíos rápidos y opciones de devolución.</small>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="impacto">
-        <div class="container">
-            <h2>Nuestro Compromiso: Compra Responsable</h2>
+            <h2 class="section-title" id="kevingston">Socio Destacado: Así Vendes con ROPA YA</h2>
+            <span class="kevingston-logo">KEVINGSTON</span>
+            <p class="section-subtitle" style="margin-bottom: 20px;">Accedé al stock en tiempo real de Kevingston a nivel nacional. La solución perfecta para nuestros clientes de 35-50 años que buscan **calidad y rapidez**.</p>
             
-            <div class="impact-list">
-                <div class="impact-item positive">
-                    <h3>🌱 Impacto Positivo</h3>
-                    <ul>
-                        <li>Reduce el uso de transporte individual (emisiones de CO₂).</li>
-                        <li>Evita la sobreproducción y desperdicio de prendas gracias a la reserva.</li>
-                        <li>Minimiza el consumo de energía de locales comerciales físicos.</li>
-                    </ul>
+            <div class="product-grid">
+                
+                <div class="product-card">
+                    <div class="product-image prod-1">
+                        Stock: 3 Tiendas Cercanas
+                    </div>
+                    <div class="product-info">
+                        <h5>Remera Piqué Clásica</h5>
+                        <p>$24.990</p>
+                        <button class="reserve-button"><i class="fas fa-lock"></i> Reservar y Retirar (Click & Collect)</button>
+                    </div>
                 </div>
-                <div class="impact-item challenge">
-                    <h3>🚧 Desafío a Gestionar</h3>
-                    <ul>
-                        <li>Generación de residuos por embalaje y emisiones por transporte de envíos.</li>
-                        <li>Necesidad de promover el consumo responsable para evitar el *fast fashion*.</li>
-                    </ul>
+
+                <div class="product-card">
+                    <div class="product-image prod-2">
+                        Stock: Envío Disponible
+                    </div>
+                    <div class="product-info">
+                        <h5>Remera Profile Algodón</h5>
+                        <p>$21.500</p>
+                        <button class="reserve-button"><i class="fas fa-truck"></i> Comprar con Envío Express</button>
+                    </div>
                 </div>
+                
+                <div class="product-card">
+                    <div class="product-image prod-3">
+                        Stock: 1 Tienda (Talle M)
+                    </div>
+                    <div class="product-info">
+                        <h5>Buzo Deportivo Cierre</h5>
+                        <p>$49.990</p>
+                        <button class="reserve-button"><i class="fas fa-lock"></i> Reservar y Retirar (Click & Collect)</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image prod-4">
+                        Stock Alto: 8 Tiendas
+                    </div>
+                    <div class="product-info">
+                        <h5>Campera Liviana Estampa</h5>
+                        <p>$38.750</p>
+                        <button class="reserve-button"><i class="fas fa-truck"></i> Comprar con Envío Express</button>
+                    </div>
+                </div>
+
             </div>
-            <p style="margin-top: 40px; font-weight: 600;">**Frase Resumen:** *El negocio debe gestionarse promoviendo prácticas sostenibles en la logística y el consumo responsable.*</p>
+            
+            <a href="#" class="cta-button" style="margin-top: 50px;">Ver Catálogo Completo de Kevingston</a>
+
         </div>
     </section>
-
+    
     <section id="cta-final">
         <div class="container">
-            <h2>¿Listo para la nueva forma de comprar ropa?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 40px;">Tu moda, tu tiempo, tu control. Elegí, reservá y vestite sin moverte de casa.</p>
-            <a href="#" class="cta-button">¡Quiero Empezar a Elegir!</a>
+            <h2 id="cta-final">Tu Moda te Espera. Sin Barreras.</h2>
+            <p>Únete a la experiencia de compra moderna que elimina la frustración del tiempo y la distancia. Elegí, reservá y vestite sin moverte de casa.</p>
+            <a href="#" class="cta-button">Descarga la App ROPA YA Ahora</a>
+            <a href="#" style="color: #fff; display: block; margin-top: 20px;">¿Eres dueño de una tienda? Haz clic aquí para unirte a nuestra red.</a>
         </div>
     </section>
 
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 ROPA YA. Todos los derechos reservados.</p>
-            <nav>
-                <a href="#">Términos y Condiciones</a>
+            <div class="footer-info">
+                <p class="footer-logo">ROPA YA</p>
+                <p>Plataforma de E-commerce y Reservas Nacional.</p>
+                <p>&copy; 2025 ROPA YA. Todos los derechos reservados.</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">Términos de Servicio</a>
                 <a href="#">Política de Privacidad</a>
-                <a href="#">Contacto</a>
-            </nav>
+                <a href="#">Preguntas Frecuentes</a>
+                <a href="#">Impacto Ambiental</a>
+            </div>
+            
+            <div class="footer-social">
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // JS simple para hacer que los botones de llamada a la acción tengan un desplazamiento suave (smooth scroll)
         document.addEventListener('DOMContentLoaded', function() {
+            // Maneja el scroll suave para los enlaces de navegación con clase 'scroll-link'
             document.querySelectorAll('a.scroll-link').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -459,8 +579,10 @@
                     const targetElement = document.querySelector(targetId);
 
                     if (targetElement) {
+                        // Calcula la posición de desplazamiento (resta 80px para dejar espacio al header fijo)
+                        const offset = 80; 
                         window.scrollTo({
-                            top: targetElement.offsetTop - 80, // Resta la altura del header sticky
+                            top: targetElement.offsetTop - offset, 
                             behavior: 'smooth'
                         });
                     }
