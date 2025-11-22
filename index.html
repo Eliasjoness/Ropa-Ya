@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROPA YA - Elegí, reservá y vestite sin moverte de casa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* [El CSS se encuentra en la sección 2 a continuación] */
+        /* Incluido aquí para tener un solo archivo si es necesario */
+        /* -------------------------------------------------------- */
+        :root {
+            --color-primary: #00BFA5; /* Verde azulado brillante */
+            --color-secondary: #38A3A5; /* Azul verdoso */
+            --color-text: #333;
+            --color-bg-light: #f9f9f9;
+            --color-white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            background-color: var(--color-white);
+        }
+
+        /* --- Utilidades --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-white);
+            background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--color-secondary);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--color-secondary);
+        }
+
+        /* --- Header y Navegación --- */
+        header {
+            background-color: var(--color-white);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            background-color: var(--color-bg-light);
+            padding: 100px 0;
+            text-align: center;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%2300BFA5;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%2338A3A5;stop-opacity:0.1" /></linearGradient></defs><rect width="100" height="100" fill="url(%23g)"/></svg>');
+            background-size: cover;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--color-secondary);
+        }
+
+        #hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            color: #555;
+        }
+
+        /* --- Sections Generales --- */
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        #problema-solucion, #impacto {
+            background-color: var(--color-bg-light);
+        }
+
+        /* --- Problema y Solución --- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: left;
+            margin-top: 50px;
+        }
+
+        .problem-card {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--color-primary);
+            transition: box-shadow 0.3s;
+        }
+
+        .problem-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-card h4 {
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        /* --- Características --- */
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--color-secondary);
+            margin-right: 20px;
+            min-width: 40px;
+        }
+
+        /* --- Testimonios --- */
+        #testimonios {
+            background-color: var(--color-white);
+        }
+
+        .testimonial-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background-color: var(--color-bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 45%;
+            text-align: left;
+        }
+
+        .testimonial-card h4 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .quote {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* --- Impacto Ambiental --- */
+        .impact-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .impact-item {
+            max-width: 300px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .impact-item.positive {
+            border-left: 5px solid green;
+        }
+
+        .impact-item.challenge {
+            border-left: 5px solid orange;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #2c3e50;
+            color: var(--color-white);
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer a {
+            color: var(--color-white);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        /* --- Media Queries (Responsiveness) --- */
+        @media (max-width: 992px) {
+            .grid-3 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .testimonial-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .testimonial-card {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            #hero p {
+                font-size: 1.1rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            header .container {
+                flex-direction: column;
+            }
+            nav {
+                margin-top: 15px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            footer nav {
+                margin-top: 15px;
+            }
+        }
+        /* -------------------------------------------------------- */
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">ROPA YA</a>
+            <nav>
+                <a href="#problema">Problema</a>
+                <a href="#caracteristicas">Funcionalidades</a>
+                <a href="#clientes">Clientes</a>
+                <a href="#impacto">Impacto</a>
+                <a href="#cta-final" class="cta-button">Empezar a Comprar</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>ROPA YA: Vestite sin moverte de casa.</h1>
+            <p>Elegí, compará y reservá moda de tiendas de todo el país. **Moderno, Ágil y Confiable.**</p>
+            <a href="#caracteristicas" class="cta-button scroll-link">🛒 Explorar Tiendas Ahora</a>
+        </div>
+    </section>
+
+    <section id="problema-solucion">
+        <div class="container">
+            <h2 id="problema">¿Por qué "ROPA YA"? Los Problemas que Resolvemos</h2>
+            <div class="grid-3">
+                <div class="problem-card">
+                    <h4>🚧 Inseguridad en el Trayecto</h4>
+                    <p>**Solución:** Evita desplazarte a zonas comerciales. Comprá desde casa de forma segura.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>⏳ Falta de Tiempo</h4>
+                    <p>**Solución:** Experiencia ágil. Compara miles de productos y marcas en minutos, sin recorrer cuadras.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>🚫 Miedo a Perder Stock</h4>
+                    <p>**Solución:** Reserva Inteligente. Asegurá que tu prenda favorita estará disponible cuando decidas comprarla.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="caracteristicas">
+        <div class="container">
+            <h2>Tu Compra, A Tu Manera.</h2>
+
+            <div class="feature-item">
+                <span class="feature-icon">🛍️</span>
+                <div>
+                    <h3>1. Explorá la Variedad Nacional</h3>
+                    <p>Accedé a un catálogo inigualable que incluye desde pequeños <strong>showrooms</strong> locales hasta grandes tiendas de <strong>shopping</strong> a lo largo del país.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <span class="feature-icon">📍</span>
+                <div>
+                    <h3>2. Geolocalización Inteligente</h3>
+                    <p>Utilizá tu ubicación para filtrar tiendas cercanas, comparar precios y organizar el retiro de forma eficiente.</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <span class="feature-icon">🔒</span>
+                <div>
+                    <h3>3. Reserva y Probalo</h3>
+                    <p>Reservá tu prenda favorita en la tienda. Luego, decidís si la probás presencialmente o si solicitás el envío a domicilio.</p>
+                </div>
+            </div>
+             <div class="feature-item">
+                <span class="feature-icon">🚚</span>
+                <div>
+                    <h3>4. Logística Flexible</h3>
+                    <p>Recibí el producto en tu casa o elegí el retiro en tienda. Nos adaptamos a tu ritmo de vida y a tus horarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clientes">
+        <div class="container">
+            <h2>ROPA YA: Diseñado para Vos.</h2>
+            <div class="testimonial-grid">
+                
+                <div class="testimonial-card">
+                    <h4>Mujer (25-35 años) - La Compradora Práctica</h4>
+                    <p class="quote">"Antes me frustraba que mis prendas favoritas se agotaran. Con ROPA YA, puedo **reservar con tranquilidad** y comprar sin apuro. ¡Confianza y flexibilidad!"</p>
+                    <small>Desea poder reservar una prenda y tener la seguridad de que estará disponible cuando decida comprarla.</small>
+                </div>
+
+                <div class="testimonial-card">
+                    <h4>Hombre (35-50 años) - El Ejecutivo Eficiente</h4>
+                    <p class="quote">"No tengo tiempo para recorrer tiendas. Necesitaba una solución **rápida, segura y con envíos eficientes**. ROPA YA me ahorró horas de búsqueda."</p>
+                    <small>Desea una experiencia sin complicaciones, con envíos rápidos y opciones de devolución.</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="impacto">
+        <div class="container">
+            <h2>Nuestro Compromiso: Compra Responsable</h2>
+            
+            <div class="impact-list">
+                <div class="impact-item positive">
+                    <h3>🌱 Impacto Positivo</h3>
+                    <ul>
+                        <li>Reduce el uso de transporte individual (emisiones de CO₂).</li>
+                        <li>Evita la sobreproducción y desperdicio de prendas gracias a la reserva.</li>
+                        <li>Minimiza el consumo de energía de locales comerciales físicos.</li>
+                    </ul>
+                </div>
+                <div class="impact-item challenge">
+                    <h3>🚧 Desafío a Gestionar</h3>
+                    <ul>
+                        <li>Generación de residuos por embalaje y emisiones por transporte de envíos.</li>
+                        <li>Necesidad de promover el consumo responsable para evitar el *fast fashion*.</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top: 40px; font-weight: 600;">**Frase Resumen:** *El negocio debe gestionarse promoviendo prácticas sostenibles en la logística y el consumo responsable.*</p>
+        </div>
+    </section>
+
+    <section id="cta-final">
+        <div class="container">
+            <h2>¿Listo para la nueva forma de comprar ropa?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px;">Tu moda, tu tiempo, tu control. Elegí, reservá y vestite sin moverte de casa.</p>
+            <a href="#" class="cta-button">¡Quiero Empezar a Elegir!</a>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ROPA YA. Todos los derechos reservados.</p>
+            <nav>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Contacto</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // JS simple para hacer que los botones de llamada a la acción tengan un desplazamiento suave (smooth scroll)
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a.scroll-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Resta la altura del header sticky
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
